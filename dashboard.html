@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard - GoldenGuess</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: {
+                        'harcourts-cyan': '#00AEEF', // Harcourts 标志性青色
+                        'harcourts-navy': '#001F3F', // 深海军蓝
+                        'harcourts-dark': '#0B1120',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Harcourts "Dark Mode" Theme */
+        body {
+            background: linear-gradient(135deg, #020c1b 0%, #001F3F 100%);
+            background-attachment: fixed;
+            color: white;
+        }
+        /* Glassmorphism Effect - Blue Tint */
+        .glass-card {
+            background: rgba(0, 31, 63, 0.4);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 174, 239, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+        }
+        /* Harcourts Cyan Gradient Button */
+        .btn-gradient {
+            background: linear-gradient(90deg, #00AEEF 0%, #0077c8 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(0, 174, 239, 0.6);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <nav class="glass-card sticky top-0 z-50 border-b border-harcourts-cyan/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-4">
+                    <div class="flex flex-col items-start leading-none">
+                        <a href="index.html" class="text-white font-bold text-xl tracking-wide">Harcourts</a>
+                        <span class="text-[10px] text-harcourts-cyan uppercase tracking-[0.2em]">Golden Links</span>
+                    </div>
+                    <div class="h-8 w-px bg-white/20"></div> <span class="text-sm font-light text-gray-300 hidden sm:block">My Dashboard</span>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <span class="text-white font-semibold text-sm hidden sm:block">Welcome, John D.</span>
+                    <a href="index.html" class="text-gray-300 hover:text-harcourts-cyan transition font-medium text-sm">Live Auctions</a>
+                    <button class="border border-red-600 text-red-600 px-4 py-1 rounded-md font-bold hover:bg-red-600 hover:text-white transition uppercase text-xs">
+                        Sign Out
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <h1 class="text-3xl font-bold text-white mb-8 border-b border-white/10 pb-4">👋 Welcome Back, John Doe</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            
+            <div class="glass-card p-6 rounded-xl border-l-4 border-harcourts-cyan">
+                <p class="text-gray-400 text-sm uppercase font-semibold tracking-wide mb-1">Total Guesses Submitted</p>
+                <p class="text-4xl font-extrabold text-white">05</p>
+                <p class="text-xs text-harcourts-cyan mt-2">3 pending, 2 finalized</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-xl border-l-4 border-yellow-500">
+                <p class="text-gray-400 text-sm uppercase font-semibold tracking-wide mb-1">Correct Predictions (Total)</p>
+                <p class="text-4xl font-extrabold text-white">01</p>
+                <p class="text-xs text-yellow-500 mt-2">Closest to the hammer price</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-xl border-l-4 border-green-500">
+                <p class="text-gray-400 text-sm uppercase font-semibold tracking-wide mb-1">Total Winnings (NZD)</p>
+                <p class="text-4xl font-extrabold text-white">$500</p>
+                <p class="text-xs text-green-500 mt-2">Funds available for withdrawal</p>
+            </div>
+
+        </div>
+
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold text-white mb-6">🎯 My Active Guesses</h2>
+            
+            <div class="overflow-x-auto glass-card rounded-xl">
+                <table class="min-w-full text-left text-sm text-gray-400">
+                    <thead class="text-xs uppercase bg-black/40 text-gray-400">
+                        <tr>
+                            <th scope="col" class="py-3 px-6">Property</th>
+                            <th scope="col" class="py-3 px-6">My Guess</th>
+                            <th scope="col" class="py-3 px-6">Auction Closes</th>
+                            <th scope="col" class="py-3 px-6">Status</th>
+                            <th scope="col" class="py-3 px-6">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-700/50 hover:bg-black/20 transition">
+                            <th scope="row" class="py-4 px-6 font-medium text-white">123 Queen Street Penthouse</th>
+                            <td class="py-4 px-6 text-harcourts-cyan font-bold">$1,550,000</td>
+                            <td class="py-4 px-6">02d 14h 35m</td>
+                            <td class="py-4 px-6"><span class="bg-yellow-500/20 text-yellow-500 text-xs font-medium px-2.5 py-0.5 rounded-full">Pending</span></td>
+                            <td class="py-4 px-6"><a href="property_detail.html" class="text-harcourts-cyan hover:text-white transition text-xs font-semibold">View Property ></a></td>
+                        </tr>
+                        <tr class="border-b border-gray-700/50 hover:bg-black/20 transition">
+                            <th scope="row" class="py-4 px-6 font-medium text-white">45 Remuera Road</th>
+                            <td class="py-4 px-6 text-harcourts-cyan font-bold">$2,800,000</td>
+                            <td class="py-4 px-6">04d 08h 30m</td>
+                            <td class="py-4 px-6"><span class="bg-yellow-500/20 text-yellow-500 text-xs font-medium px-2.5 py-0.5 rounded-full">Pending</span></td>
+                            <td class="py-4 px-6"><a href="property_detail.html" class="text-harcourts-cyan hover:text-white transition text-xs font-semibold">View Property ></a></td>
+                        </tr>
+                        <tr class="hover:bg-black/20 transition">
+                            <th scope="row" class="py-4 px-6 font-medium text-white">88 Ponsonby Road</th>
+                            <td class="py-4 px-6 text-harcourts-cyan font-bold">$1,050,000</td>
+                            <td class="py-4 px-6">06d 01h 15m</td>
+                            <td class="py-4 px-6"><span class="bg-yellow-500/20 text-yellow-500 text-xs font-medium px-2.5 py-0.5 rounded-full">Pending</span></td>
+                            <td class="py-4 px-6"><a href="property_detail.html" class="text-harcourts-cyan hover:text-white transition text-xs font-semibold">View Property ></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold text-white mb-6">🏆 My Prediction History</h2>
+            
+            <div class="overflow-x-auto glass-card rounded-xl">
+                <table class="min-w-full text-left text-sm text-gray-400">
+                    <thead class="text-xs uppercase bg-black/40 text-gray-400">
+                        <tr>
+                            <th scope="col" class="py-3 px-6">Property</th>
+                            <th scope="col" class="py-3 px-6">My Guess</th>
+                            <th scope="col" class="py-3 px-6">Hammer Price</th>
+                            <th scope="col" class="py-3 px-6">Deviation</th>
+                            <th scope="col" class="py-3 px-6">Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-700/50 hover:bg-black/20 transition">
+                            <th scope="row" class="py-4 px-6 font-medium text-white">14 Orakei Terrace</th>
+                            <td class="py-4 px-6 font-bold">$990,000</td>
+                            <td class="py-4 px-6 text-green-500 font-bold">$990,000</td>
+                            <td class="py-4 px-6 text-green-500 font-bold">$0</td>
+                            <td class="py-4 px-6"><span class="bg-green-500/20 text-green-500 text-xs font-medium px-2.5 py-0.5 rounded-full">WINNER ($500)</span></td>
+                        </tr>
+                        <tr class="hover:bg-black/20 transition">
+                            <th scope="row" class="py-4 px-6 font-medium text-white">77 Parnell Rise</th>
+                            <td class="py-4 px-6 font-bold">$1,850,000</td>
+                            <td class="py-4 px-6 text-red-500 font-bold">$2,000,000</td>
+                            <td class="py-4 px-6 text-red-500 font-bold">-$150,000</td>
+                            <td class="py-4 px-6"><span class="bg-gray-500/20 text-gray-500 text-xs font-medium px-2.5 py-0.5 rounded-full">Missed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-gray-900 border-t border-white/10 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-sm text-gray-500 mb-4 md:mb-0">
+                    <span class="font-bold text-white">Harcourts GoldenLinks</span> &copy; 2023. 
+                </div>
+                <div class="flex gap-6 text-sm text-gray-400">
+                    <a href="#" class="hover:text-white">Privacy Policy</a>
+                    <a href="#" class="hover:text-white">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
